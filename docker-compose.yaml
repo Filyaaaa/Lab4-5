@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - fastapi
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: 'lab2py'
+      MYSQL_USER: 'user1'
+      MYSQL_PASSWORD: 'user1'
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_RANDOM_ROOT_PASSWORD: 'no'
+    networks:
+      - fastapi
+
+networks:
+  fastapi:
