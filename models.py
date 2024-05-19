@@ -15,7 +15,7 @@ class Record(base):
     __tablename__ = 'records'
 
     id = Column(Integer, primary_key=True, index=True)
-    tittle = Column(String(50), unique=True)
+    title = Column(String(50), unique=True)
     content = Column(String(255))
     user_id = Column(Integer)
 
